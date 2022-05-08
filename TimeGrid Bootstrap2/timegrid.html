@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+    integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <!-- main project start -->
+    <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet"
+    type="text/css" />
+    <script type="text/javascript" src="https://unpkg.com/moment@latest"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/almende/vis/master/lib/DataSet.js"></script>
+    <script type="text/javascript"
+    src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert@1.1.3/dist/sweetalert.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert@1.1.3/dist/sweetalert.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+    integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/ui-lightness/jquery-ui.css" />
+    <link rel="stylesheet" href="timegrid.css">
+    <title>Time Grid</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 style="margin-top: 2%; margin-left: auto;">Timeline grouping performance</h1>
+
+    <p style="margin-top: 0%; margin-left: auto;">
+      Choose a number of items:
+      <a href="?count=2">Default</a>, 
+      <a href="?count=100">100</a>, 
+      <a href="?count=1000">1000</a>,
+      <a href="?count=10000">10000</a>,
+      <a href="?count=100000">100000</a>
+    </p>
+    <p><span id="count" style="margin-top: 0%; margin-left: auto;"></span></p>
+
+    <button id="buttonAdd" style="margin-left: auto">Add group</button>
+    <button id="buttonRemove" style="margin-left: auto">Remove last added group</button>
+    <button id="buttonChange" style="margin-left: auto">upDate last added group</button>
+
+    <div id="log" style="margin-top: 0%; margin-left: auto; display:flex;"></div>
+
+    <div id="visualization" style="margin-top: 0%; margin-left: auto; width: auto; clear: both;">
+      <div id="loading"></div>
+
+    <button data-model-target="#model" style="padding:5px 3px 5px 3px; background:#5cb85c; border-radius: 4.5px; color:#f7f7f7; float: right; outline:none;"><b>Button</b></button>
+  </div>
+
+    <div class="model" id="model">
+      <button data-close-button class="close-button" style="outline: none;">&times;</button>
+      <div class="model-body">
+        <div id="d">
+          <div id="d1">
+            <pre><h1 class="head" style="overflow: hidden;"> <b>Address</b></h1></pre>
+            <pre><input type="checkbox"  class="checkbox-round"> <b>Select address</b></pre>
+
+            <select class="fc" id="TestCompany1">
+              <option>TestCompany1, Max Mustermann, Teststr.7, 74348...</option>
+            </select>
+            <pre><input type="checkbox" class="checkbox-round">  <b>Add new address</b></pre>
+            <p class="pp1"><b>Company Name</b></p>
+           
+            <input
+              class="fc"
+              id="inlineFormInputName1"
+              type="text"
+              placeholder=""
+            />
+            <p class="pp2"><b>Contact Person</b></p>
+            <input
+              class="fc"
+              id="inlineFormInputGroup2"
+              type="text"
+              placeholder=""
+            /><br />
+            <form>
+              <p class="pp3"><b>Street</b></p>
+              
+              <input
+                class="fc"
+                id="street"
+                type="text"
+                placeholder=""
+              />
+              <label for="exampleFormControlTextarea1" class="pp4"
+                ><b>ZipCode</b></label
+              ><br />
+              
+              <input
+                class="fc"
+                id="number"
+                type="text"
+                placeholder=""
+              />
+            </form>
+            <form>
+              <p class="pp5"><b>Number</b></p>
+              
+              <input class="fc" id="zip" type="text" placeholder="" />
+              <p class="pp6"><b>City</b></p>
+              
+              <input
+                class="fc"
+                id="city"
+                type="text"
+                placeholder=""
+              />
+            </form>
+            <p class="pp7"><b>Country</b></p>
+            
+            <input
+              class="fc"
+              id="country"
+              type="text"
+              placeholder=""
+            />
+            <p class="pp8"><b>Phone</b></p>
+            
+            <input class="fc" id="phone" type="text" placeholder="" />
+            <p class="pp9"><b>E-mail</b></p>
+            
+            <input class="fc" type="text" id="email" placeholder="" />
+            <p class="pp10"><b>Website</b></p>
+            
+            <input
+              class="fc"
+              id="website1"
+              type="text"
+              placeholder=""
+            />
+          </div>
+          <div class="vl"></div>
+          <div id="d2">
+            <h1 class="q1" style="overflow: hidden;">
+              <pre style="overflow: hidden;">  <b>Job information</b></pre>
+            </h1>
+            <p class="q2">
+              <b>Date</b>
+              <input class="fc" type="text" name="" id="date" />
+            </p>
+            <p class="q3">
+              <b>Time</b>
+              <input
+                type="text"
+                class="fc"
+                id="time-pickable"
+                placeholder="       HH     :     mm    "
+              />
+            </p>
+            <p class="q4">
+              <b>PlannedDurationMinutes</b>
+              <input
+                class="fc"
+                id="PlannedDurationMinutes"
+                type="text"
+                placeholder="60"
+              />
+            </p>
+            <p class="q5">
+              <b>User</b>
+              <select class="fc" id="user">
+                <option>Max Mustermann</option>
+              </select>
+            </p>
+            <label for="exampleFormControlTextarea1" class="q6"
+              ><b>Details</b></label
+            >
+            <textarea
+              class="fc"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+            <div id="form">
+              <div id="notes">
+                <label for="exampleFormControlTextarea1" class="q7"
+                  ><b>Notes</b></label
+                >
+                <textarea
+                  class="fc"
+                  id="exampleFormControlTextarea2"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div id="notesintern">
+                <label for="exampleFormControlTextarea1" class="q8"
+                  ><b>Note Intern</b></label
+                >
+                <textarea
+                  class="fc"
+                  id="exampleFormControlTextarea3"
+                  rows="4"
+                ></textarea>
+              </div>
+            </div>
+            <label for="exampleFormControlTextarea1" class="q9"
+              ><b>Price</b></label>
+            <input class="fc" id="price" type="text" placeholder="" />
+            <div id="curn">
+            <label for="exampleFormControlTextarea1" class="q10"
+              ><b>Currency</b></label>
+              <br />
+              <select class="fc" id="currency">
+                <option><b>Euro</b></option></select>
+              </div><br>
+            <div id="footer">
+              <button id="cancel" data-close-button><b>Cancel</b></button>
+
+              <button id="ok"><b>OK</b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+  <!-- main project end -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="timegrid.js"></script>
+  </body>
+</html>

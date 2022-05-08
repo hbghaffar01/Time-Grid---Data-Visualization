@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* main project start */
+
+body, html {
+    color: #4d4d4d;
+    font-family: sans-serif;
+    font-size: 11pt;
+    font: 10pt arial;
+  }
+  
+  /* Modal */
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+ .vis-timeline{
+   clear: both !important;
+ } 
+  .model {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    z-index: 10;
+    background-color: white;
+  }
+  
+  .model.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: -18px;
+    float: right;
+    width: 35px;
+    height: 0px;
+  }
+  .close-button:hover{
+    color: #d9534f;  
+  }
+  .model-body {
+    background: white;
+    padding: 5px 15px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-family: "Times New Roman", Times, serif;
+    width: 670px;
+    max-width: 100%;
+    height: 550px;
+    border-bottom: 1px solid #000000;
+  }
+  
+  #overlay {
+    position: sticky;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    pointer-events: all;
+  }
+  #content {
+    overflow: auto;
+    display: fixed;
+  }
+  #d{
+    height: 540px;
+    margin-top: 0%;
+    display: inline-flex;
+    background-color: white;
+    overflow: hidden;
+  }
+  .head {
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+  
+  .checkbox-round {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: #EDE8E3;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #171615;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0px 0px 1px 5px;
+  }
+  .checkbox-round:checked {
+    background-color: #000000;
+  }
+  
+  #TestCompany1{
+    width: 275px;
+  }
+  #inlineFormInputName1{
+    width: 275px;
+  }
+  #country{
+    width: 275px;
+  }
+  #phone{
+    width: 275px;
+  }
+  .fc {
+    margin-top: 3px;
+    margin-left: 25px;
+    width: 175px;
+  }
+    .fc:focus {
+    border-color: #ffffff;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075),
+      0 0 1px rgba(0, 0, 0, 0.6);
+  }
+  
+  .pp1{
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+  .pp2 {
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .pp7, .pp8, .pp9, .pp10{
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .pp10{
+    margin: 0%;
+    margin-left: 25px;
+    margin-top: 0px;
+  }
+  .pp3{
+    margin-left: 26px;
+    margin-bottom: 0px;
+    display: grid;
+    margin-right: -20px;
+  }
+  .pp4{
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: -18px;
+    display: grid;
+    margin-right: -20px;
+  }
+  .pp5{
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    display: grid;
+    margin-right: -7px;
+  }
+  .pp6{
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    display: grid;
+    margin-right: -20px;
+  }
+  
+  #inlineFormInputGroup2{
+    width: 275px;
+  }
+  #street{
+    margin-top: 3px;
+    margin-right: -18px;
+    width: 120px;
+    display: grid;
+  }
+  #number{
+    margin-top: 3px;
+    margin-left: 24.9px;
+    width: 120px;
+    display: grid;
+  }
+  #zip{
+    margin-top: 3px;
+    margin-left: 25px;
+    width: 127px;
+    display: grid;
+  }
+  #city{
+    margin-top: 3px;
+    margin-left: 25px;
+    width: 125px;
+    display: grid;
+  }
+  #email{
+    width: 275px;
+  }
+  #website1{
+    width: 275px;
+    margin-bottom: 20px;
+  }
+  
+  #d1{
+    height: 585px;
+    margin-top: 0%;
+    display: inline-block;
+    margin: 0%;
+    background-color: white;
+    overflow: hidden;
+  }
+  
+  
+  .vl {
+    border-left: 1px solid rgb(0,0,0, 1.0);
+    height: 480px;
+    position: relative;
+    left: 2%;
+    margin-left: 1px;
+    margin-top: 60px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .q1 {
+    margin-top: 4.1px;
+  }
+  .q2{
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+  #date{
+    width: 250px;
+    margin: initial;
+   display: flex;
+  }
+  #d2{
+    width: 48.67%;
+    height: 585px;
+    margin-top: 0%;
+    display: flow-root;
+    margin: 0%;
+    float: right;
+    background-color: white;
+    overflow: hidden;
+  }
+  #time-pickable{
+    width: 150px;
+    margin: 0%;
+   display: grid;
+  }
+  .q3{
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .q4{
+    margin-left: 25px;
+    margin-bottom: 2px;
+  }
+  #PlannedDurationMinutes{
+    margin-left: 0%;
+    width: 85px;
+   display: flex;
+   float: inline-start;
+  }
+  .q5{
+    margin-left: 25px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  #user{
+    margin: 0%;
+    padding: 0%;
+    width: 250px;
+   display: flex;
+  }
+  .q6{
+    margin-left: 25px;
+  }
+  #exampleFormControlTextarea1{
+    width: 250px;
+    margin: 0%;
+    margin-left: 25px;
+    display: grid;
+   display: flex;
+  }
+  .q7{
+    margin-left: 25px;
+    display: grid;
+  }
+  #exampleFormControlTextarea2{
+    width: 110px;
+    margin-left: 25px;}
+  .q8{
+    margin-left: 25px;
+    margin-top: 3px;
+    display: inline-grid;
+  }
+  #exampleFormControlTextarea3{
+      width: 115px;
+      display: inline-grid;
+  }
+  .q9{
+    margin-left: 25px;
+    display: flex;
+    float: inline-start;
+    margin-right: -5px;
+  }
+  #price{
+    width: 66px;
+    margin-top: -5px;
+    margin-left: 40px;
+  }
+  #currency{
+    width: 66px;
+  }
+  
+  #curn{
+    float: right;
+  }
+  
+  form{
+    display: inline-grid;
+  }
+  #notes{
+    display: grid;
+    margin-top: auto;
+  }
+  #notesintern{
+  display: grid;
+  margin-left: 11.8px;
+  }
+  #form{
+    display: inline-flex;
+  }
+  #footer{
+    display: inline-flex;
+      float: right;
+      margin-top: 6.5px;
+      margin-left: 65.9px;
+  
+  }
+  #cancel{
+    background-color: #d9534f ;
+    color: #ffffff;
+    border-radius: 5.5px;
+    margin-right: 20px;
+    height: 30px;
+    width: 70px;
+    border: 1px solid #2D2B2A;
+    outline-color: rgb(0,0,0, 0.4);
+  }
+  #cancel:hover{
+    background-color: #ffffff;
+    color: #d9534f;
+  }
+  #ok{
+    background-color: #0275d8 ;
+    color: #ffffff;
+    border-radius: 5.5px;
+    height: 30px;
+    width: 40px;
+    border: 1px solid #2D2B2A;
+    outline-color: rgb(0,0,0, 0.4);
+  }
+  #ok:hover{
+    background-color: #ffffff;
+    color: #0275d8;
+  }
+ 
+  /* Group */
+  #networkContainer, #timelineContainer {
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+  }
+  
+  #networkContainer {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+  }
+  
+  #timelineContainer {
+    width: 100%;
+    height: auto;
+  }
+  
